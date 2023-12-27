@@ -1,6 +1,5 @@
-import Person from './Person'
 import './App.css'
-
+import Cardlist from './Cardlist'
 
 function App() {
   const persons = [
@@ -45,8 +44,8 @@ function App() {
   return (
     
     <>
-      <Person data={persons}/>
-    
+
+      <Cardlist data = {persons}/>   
     </>
   )
 }

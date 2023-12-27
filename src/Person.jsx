@@ -1,23 +1,49 @@
-const Person = ({data}) => {
-    return( 
-        <div>
+
+import { useState } from "react"
+
+    const Person = ({data}) => {
+
+        const [isShows ,setIsShows] = useState(data.shows)
+
+
+
+
+    const handleClick = () => {
+        setIsShows(!isShows)
         
+    }
+        return( 
+            <div>
 
-            {data.map((item)=>(
+                { 
+                
+                    
+                    isShows ? <div className="border border-gray-700 justify-content: center;">
+                    <h1>{data.fullName}</h1>
+                    <h4>{data.bio}</h4>
+                    <img src={data.imgSrc} alt={data.fullName}  />
+                    <h2>{data.profession}</h2>
 
-                <div className="border border-gray-700 flex flex-col justify-between h-full m-6 ">
 
-                    <h1>{item.fullName}</h1>
-                    <h4>{item.bio}</h4>
-                    <img src={item.imgSrc} alt={item.fullName}  />
-                    <h2>{item.profession}</h2>
+                    <button onClick={handleClick} >click me</button>
+                   
+                    
                 </div>
-            ))}
+                    : 
+                    
+                    <div style={{backgroundColor:"red"}}>
+                            <p> Not Found</p>
+
+                        <button onClick={handleClick} >click me</button>
+                    </div>
+                
+                }
 
 
-          
+                
+    
                
-         </div>
-    )
+            </div>
+       )
 }
 export default Person
